@@ -14,7 +14,7 @@
 	Loaded="Window_Loaded"
 	Closing="Window_Closing"
 	>
-	
+
   <Grid>
 		<Grid.Resources>
 			<Style TargetType="{x:Type TextBlock}">
@@ -34,11 +34,12 @@
 			<RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
 
-		<TextBlock
+		<ScrollViewer Grid.Column="0">
+			<TextBlock
 			Text="{Binding Input}"
-			Grid.Column="0"
 			Background="Wheat"
 			/>
+		</ScrollViewer>
 
 		<Grid Grid.Column="0" Grid.Row="1" Margin="5,0,5,5">
 			<Grid.ColumnDefinitions>
@@ -46,15 +47,16 @@
 				<ColumnDefinition Width="Auto" />
 			</Grid.ColumnDefinitions>
 
-			<TextBox x:Name="tbUserInput" Text="{Binding UserInput}" Grid.Column="0" Padding="5" />
+			<TextBox x:Name="tbUserInput" Grid.Column="0" Padding="5" />
 			<Button Grid.Column="1" Content="Submit" Click="Button_Click" Padding="5" Margin="5,0,0,0"/>
 		</Grid>
 
-		<TextBlock
+		<ScrollViewer Grid.Column="1">
+			<TextBlock
 			Text="{Binding Log}"
-			Grid.Column="1"
 			Background="LightBlue"
 			/>
+		</ScrollViewer>
 
 		<!-- The leading empty curly braces {} in StringFormat aren't mentioned in the docs (that I have found), but provide a necessary escape for the format string -->
 		<TextBlock

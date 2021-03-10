@@ -62,7 +62,7 @@ namespace ElixirUI
 				// I had to add a heartbeat to the Elixir code because I can't figure out how to get it to automatically update and see responses from the C#.
 				if (false == strServerResponse.Equals("heartbeat"))
 				{
-					InputBuilder.AppendLine(strServerResponse);
+					InputBuilder.AppendLine(strServerResponse.Trim());
 				}
 			}
 		}
@@ -109,6 +109,11 @@ namespace ElixirUI
 		}
 
 		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			SubmitUserInput();
+		}
+
+		private void SubmitUserInput()
 		{
 			if (string.IsNullOrWhiteSpace(tbUserInput.Text)) return;
 
